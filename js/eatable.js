@@ -2,6 +2,8 @@
  * Created by jodychen on 11/22/14.
  */
 
+// merry christmas, andy's learning git basics
+
 var eatableApp = angular.module('eatableApp',  ['ngRoute', 'ui.bootstrap']);
 
 eatableApp
