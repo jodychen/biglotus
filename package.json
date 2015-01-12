@@ -1,0 +1,19 @@
+{
+  "name": "Eatable",
+  "version": "1.0.0",
+  "description": "=-=-=-= Eatable =======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glassnor/Eatable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glassnor/Eatable/issues"
+  },
+  "homepage": "https://github.com/glassnor/Eatable"
+}
