@@ -1,7 +1,7 @@
 {
   "name": "BigLotus",
   "version": "1.0.0",
-  "description": "=-=-=-= BigLotus =======",
+  "description": "=-=-=-= Eatable =======",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
