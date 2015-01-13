@@ -4,27 +4,12 @@
   "description": "=-=-=-= Eatable =======",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "body-parser": "^1.10.0",
-    "ejs": "^1.0.0",
-    "express": "~4.9.x",
-    "html": "0.0.7"
-  },
-  "engines": {
-    "node": "0.10.x"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/glassnor/Eatable.git"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
   "author": "",
   "license": "ISC",
   "bugs": {
