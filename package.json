@@ -1,5 +1,5 @@
 {
-  "name": "Eatable",
+  "name": "BigLotus",
   "version": "1.0.0",
   "description": "=-=-=-= Eatable =======",
   "main": "index.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/glassnor/Eatable.git"
+    "url": "https://github.com/jodychen/biglotus.git"
   },
   "keywords": [
     "node",
@@ -26,9 +26,9 @@
     "express"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/glassnor/Eatable/issues"
+    "url": "https://github.com/jodychen/biglotus/issues"
   },
-  "homepage": "https://github.com/glassnor/Eatable"
+  "homepage": "https://github.com/jodychen/biglotus"
 }

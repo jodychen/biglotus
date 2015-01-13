@@ -4,9 +4,9 @@
 
 // merry christmas, andy's learning git basics
 
-var eatableApp = angular.module('eatableApp',  ['ngRoute', 'ui.bootstrap']);
+var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap']);
 
-eatableApp
+myApp
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
