@@ -13,6 +13,10 @@ myApp
                 templateUrl: 'html/login.html',
                 controller: 'authentication'
             })
+            .when('/map', {
+                templateUrl: 'html/map.html',
+                controller: 'showMap'
+            })
             .when('/detail/:projId', {
                 templateUrl: 'html/detail-ang.html',
                 controller: 'projectListCtrl'
@@ -28,6 +32,17 @@ myApp
     })
     .controller('authentication', function ($scope, $routeParams) {
         $scope.params = $routeParams;
+    })
+    .controller('showMap', function ($scope, $routeParams) {
+        $scope.params = $routeParams;
     });
 
+//  CMC:  40.742683, -73.873578
 
+// API key:\u0009 AIzaSyCfKe-nvx2gcpQDBlTjLXCQ8TerMHHV0Vw 
+// Referers:\u0009 Any referer allowed 
+// Activated on:\u0009Jan 14, 2015 11:46 AM 
+// Activated by:\u0009johnandrewnewcomb@gmail.com – you 
+
+
+// 40.7407323,-73.8756917
