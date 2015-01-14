@@ -1,1 +1,28 @@
-  <h1>Login</h1>
+   <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfKe-nvx2gcpQDBlTjLXCQ8TerMHHV0Vw">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 40.7407323, lng: -73.8756917},
+          zoom: 16
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        var myLatlng = new google.maps.LatLng(40.742683, -73.873578);
+        // To add the marker to the map, use the 'map' property
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title:"Chan Meditation Center"
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    
+    
+    <div id="map-canvas"></div>
+    
