@@ -40,7 +40,7 @@ myApp
     .controller('authentication', function ($scope, $routeParams) {
         $scope.params = $routeParams;
     })
-    .controller('showMap', function ($scope, $routeParams) {
+    .controller('showMap', function ($scope, $routeParams, uiGmapGoogleMapApi) {
         $scope.params = $routeParams;
         $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
         $scope.marker = {
@@ -51,6 +51,8 @@ myApp
             },
             title:"Chan Meditation Center"
         }
+         uiGmapGoogleMapApi.then(function(maps) {
+        
     });
 
 //  CMC:  40.742683, -73.873578
