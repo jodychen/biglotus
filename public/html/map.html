@@ -1,3 +1,14 @@
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'>
   <ui-gmap-marker idKey='marker.id' coords='marker.coords' options='marker.options'></ui-gmap-marker>
 </ui-gmap-google-map>
+-->
+
+      <div ng-show="zipCode">        
+        <p>{{ zipCode }}</p>
+      </div>
+      <div ng-hide="zipCode">
+        <p>{{ message }}</p>
+      </div>
+    </div>
+
+
