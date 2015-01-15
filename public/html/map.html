@@ -3,12 +3,25 @@
 </ui-gmap-google-map>
 -->
 
-      <div ng-show="zipCode">        
-        <p>{{ zipCode }}</p>
+ <div ng-app="MyApp">
+    <div ng-controller="MainCtrl">
+      <div ng-show="position">        
+        <p>{{ position | json }}</p>
+      </div>
+      <div ng-hide="position">
+        <p>{{ message }}</p>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- <div ng-show="zipCode">        
+      <p>{{ zipCode }}</p>
       </div>
       <div ng-hide="zipCode">
         <p>{{ message }}</p>
       </div>
     </div>
-
+ -->
 

@@ -56,41 +56,73 @@ myApp
         });
         
     })
-    .controller('zipCodeCtrl', ['$scope', 'ZipCodeLookupSvc',
-    function($scope, ZipCodeLookupSvc) {
-      $scope.zipCode = null;
-      $scope.message = 'Finding zip code...';
+    
+    
+    .controller('geoCtrl', [
+        '$scope', 
+        'GeolocationService', 
+        function ($scope, geolocation) {
+            $scope.position = null;
+            $scope.message = "Determining gelocation...";
 
-      ZipCodeLookupSvc.lookup().then(function(zipCode) {
-        $scope.zipCode = zipCode;
-      }, function(err) {
-        $scope.message = err;
-      });
-    }]);
+            geolocation().then(
+                function (position) {
+                    $scope.position = position;
+                }, 
+                function (reason) {
+                    $scope.message = "Could not be determined."
+                }
+            );
+        }
+    ]);
+    
+    
+/*    .controller('zipCodeCtrl', [
+        '$scope', 
+        'ZipCodeLookupSvc', 
+        function($scope, ZipCodeLookupSvc) {
+            $scope.zipCode = null;
+            $scope.message = 'Finding zip code...';
+
+            ZipCodeLookupSvc.lookup().then(
+                function(zipCode) {
+                    $scope.zipCode = zipCode;
+                }, 
+                function(err) {
+                    $scope.message = err;
+                }
+            );
+        }
+    ]);
+    */
 
     
     myApp.factory('GeolocationSvc', [
-    '$q', '$window',
-    function($q, $window) {
-      return function() {
-        var deferred = $q.defer();
+        '$q', 
+        '$window', 
+        '$rootScope',
+        function($q, $window, $rootScope) {
+            return function() {
+                var deferred = $q.defer();
 
-        if(!$window.navigator) {
-          deferred.reject(new Error('Geolocation is not supported'));
-        } else {
-          $window.navigator.geolocation.getCurrentPosition(function(position) {
-            deferred.resolve({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            });
-          }, deferred.reject);
+                if(!$window.navigator) {
+                    deferred.reject(new Error('Geolocation is not supported'));
+                } 
+                else {
+                    $window.navigator.geolocation.getCurrentPosition(function(position) {
+                        deferred.resolve(  
+                            position
+                            // { lat: position.coords.latitude, lng: position.coords.longitude }
+                        );
+                    }, deferred.reject);
+                }
+
+                return deferred.promise;
+            };
         }
+    ]);
 
-        return deferred.promise;
-      };
-  }]);
-
-  myApp.factory('ZipCodeLookupSvc', [
+ /*  myApp.factory('ZipCodeLookupSvc', [
     '$q', '$http', 'GeolocationSvc',
     function($q, $http, GeolocationSvc) {
       var MAPS_ENDPOINT = 'http://maps.google.com/maps/api/geocode/json?latlng={POSITION}&sensor=false';
@@ -131,7 +163,7 @@ myApp
       };
     }
   ]);
-
+*/
 
 //  CMC:  40.742683, -73.873578
 
