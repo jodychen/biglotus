@@ -4,7 +4,7 @@
 
 // merry christmas, andy's learning git basics
 
-var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap']);
+var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
 
 myApp
     .config(function($routeProvider) {
@@ -26,6 +26,13 @@ myApp
             });
         console.log('end of config function');
         })
+    .config(function(uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyCfKe-nvx2gcpQDBlTjLXCQ8TerMHHV0Vw',
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    })
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
@@ -35,6 +42,15 @@ myApp
     })
     .controller('showMap', function ($scope, $routeParams) {
         $scope.params = $routeParams;
+        $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 8 };
+        $scope.marker = {
+            id: 0,
+            coords: {
+                latitude: 40.742683,
+                longitude: -73.873578
+            },
+            title:"Chan Meditation Center"
+        }
     });
 
 //  CMC:  40.742683, -73.873578
