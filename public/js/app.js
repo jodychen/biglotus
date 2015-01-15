@@ -42,9 +42,9 @@ myApp
     })
     .controller('showMap', function ($scope, $routeParams) {
         $scope.params = $routeParams;
-        $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 8 };
+        $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
         $scope.marker = {
-            id: 0,
+            id: 1,
             coords: {
                 latitude: 40.742683,
                 longitude: -73.873578
