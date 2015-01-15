@@ -98,7 +98,7 @@ myApp
     */
 
     
-    myApp.factory('GeolocationSvc', [
+    myApp.factory('GeolocationService', [
         '$q', 
         '$window', 
         '$rootScope',
