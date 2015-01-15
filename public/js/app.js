@@ -51,7 +51,8 @@ myApp
             },
             title:"Chan Meditation Center"
         }
-         uiGmapGoogleMapApi.then(function(maps) {
+        uiGmapGoogleMapApi.then(function(maps) {
+        });
         
     });
 
