@@ -16,7 +16,8 @@ myApp
             .when('/map', {
                 templateUrl: 'html/map.html',
                 // controller: 'showMap'
-                controller: 'zipCodeCtrl'
+                // controller: 'zipCodeCtrl'
+                controller: 'geoCtrl'
             })
             .when('/detail/:projId', {
                 templateUrl: 'html/detail-ang.html',
