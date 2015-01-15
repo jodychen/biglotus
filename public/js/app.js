@@ -107,17 +107,22 @@ myApp
                 var deferred = $q.defer();
 
                 if(!$window.navigator) {
-                    deferred.reject(new Error('Geolocation is not supported'));
+                    $rootScope.$apply(function() {
+                        deferred.reject(new Error('Geolocation is not supported'));
+                    });
                 } 
                 else {
                     $window.navigator.geolocation.getCurrentPosition(function(position) {
-                        deferred.resolve(  
-                            position
-                            // { lat: position.coords.latitude, lng: position.coords.longitude }
-                        );
-                    }, deferred.reject);
+                        $rootScope.$apply(function() {
+                                deferred.resolve(position);
+                                // { lat: position.coords.latitude, lng: position.coords.longitude }
+                        });
+                    }, function(error) {
+                        $rootScope.$apply(function() {
+                            deferred.reject(error);
+                        });
+                    });
                 }
-
                 return deferred.promise;
             };
         }
