@@ -49,7 +49,7 @@ myApp
                 latitude: 40.742683,
                 longitude: -73.873578
             },
-            title:"Chan Meditation Center"
+            options: {title:'Chan Meditation Center'}
         }
         uiGmapGoogleMapApi.then(function(maps) {
         });
