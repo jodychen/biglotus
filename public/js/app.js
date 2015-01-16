@@ -35,9 +35,9 @@ myApp
             libraries: 'weather,geometry,visualization'
         });
     })
-   // .config(function(GeolocationServiceProvider) {
-     //   ;
-    // })
+   .config(function(GeolocationServiceProvider) {
+     ;
+     })
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
@@ -45,21 +45,24 @@ myApp
     .controller('authentication', function ($scope, $routeParams) {
         $scope.params = $routeParams;
     })
-    .controller('showMap', [ '$scope', 'GeolocationService', function ($scope, $routeParams, uiGmapGoogleMapApi, geolocation) {
-        $scope.params = $routeParams;
+    .controller('showMap', [ 
+            '$scope', 
+            'GeolocationService', 
+            function ($scope, $routeParams, uiGmapGoogleMapApi, geolocation) {
+                $scope.params = $routeParams;
         // $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
 
-            $scope.position = null;
-            $scope.message = "Determining geolocation...";
+                $scope.position = null;
+                $scope.message = "Determining geolocation...";
 
-            geolocation().then(
-                function (position) {
-                    $scope.position = position;
-                }, 
-                function (reason) {
-                    $scope.message = "Could not be determined."
-                }
-            );
+                geolocation().then(
+                    function (position) {
+                        $scope.position = position;
+                    }, 
+                    function (reason) {
+                        $scope.message = "Could not be determined."
+                    }
+                );
  
         $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.latitude }, zoom: 16 };
 
