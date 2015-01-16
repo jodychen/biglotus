@@ -79,7 +79,14 @@ myApp
                 function (position) {
                     $scope.position = position;
                     $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 16 };
-
+                    $scope.marker = {
+                        id: 1,
+                        coords: {
+                            latitude: 40.742683,
+                            longitude: -73.873578
+                        },
+                        options: {title:'Chan Meditation Center'}
+                    }
                 }, 
                 function (reason) {
                     $scope.message = "Could not be determined."
