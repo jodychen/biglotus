@@ -15,9 +15,9 @@ myApp
             })
             .when('/map', {
                 templateUrl: 'html/map.html',
-                controller: 'showMap'
+                // controller: 'showMap'
                 // controller: 'zipCodeCtrl'
-                // controller: 'geoCtrl'
+                controller: 'geoCtrl'
             })
             .when('/detail/:projId', {
                 templateUrl: 'html/detail-ang.html',
@@ -83,6 +83,8 @@ myApp
                     $scope.message = "Could not be determined."
                 }
             );
+            $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
+
         }
     ]);
     
