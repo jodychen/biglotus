@@ -78,14 +78,15 @@ myApp
             geolocation().then(
                 function (position) {
                     $scope.position = position;
+                    $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 16 };
+
                 }, 
                 function (reason) {
                     $scope.message = "Could not be determined."
                 }
             );
             // $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
-            $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 16 };
-
+ 
 
         }
     ]);
