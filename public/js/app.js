@@ -67,7 +67,7 @@ myApp
         'GeolocationService', 
         function ($scope, geolocation) {
             $scope.position = null;
-            $scope.message = "Determining gelocation...";
+            $scope.message = "Determining geolocation...";
 
             geolocation().then(
                 function (position) {

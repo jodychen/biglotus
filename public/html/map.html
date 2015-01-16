@@ -4,9 +4,9 @@
 -->
 
       <div ng-show="position">        
-        <!-- <p>{{ position | json }}</p> -->
-        <p>{{ position.coords.latitude }}</p>
-        <p>{{ position.coords.longitude }}</p>
+        <p>{{ position | json }}</p>
+        <!-- <p>{{ position.coords.latitude }}</p>
+        <p>{{ position.coords.longitude }}</p> -->
       </div>
       <div ng-hide="position">
         <p>{{ message }}</p>
