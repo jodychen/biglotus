@@ -35,9 +35,9 @@ myApp
             libraries: 'weather,geometry,visualization'
         });
     })
-    .config(function(GeolocationServiceProvider) {
-        ;
-    })
+   // .config(function(GeolocationServiceProvider) {
+     //   ;
+    // })
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
