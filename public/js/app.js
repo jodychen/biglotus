@@ -35,6 +35,9 @@ myApp
             libraries: 'weather,geometry,visualization'
         });
     })
+    .config(function(GeolocationServiceProvider) {
+        ;
+    })
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
@@ -115,7 +118,7 @@ myApp
                     $window.navigator.geolocation.getCurrentPosition(function(position) {
                         $rootScope.$apply(function() {
                                 deferred.resolve(position);
-                                // { lat: position.coords.latitude, lng: position.coords.longitude }
+                                // deferred.resolve({ lat: position.coords.latitude, lng: position.coords.longitude });
                         });
                     }, function(error) {
                         $rootScope.$apply(function() {
