@@ -79,13 +79,20 @@ myApp
                 function (position) {
                     $scope.position = position;
                     $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 16 };
-                    $scope.marker = {
+                    $scope.marker1 = {
                         id: 1,
                         coords: {
                             latitude: 40.742683,
                             longitude: -73.873578
                         },
                         options: {title:'Chan Meditation Center'}
+                    }
+                    $scope.marker2 = {
+                        id: 2,
+                        coords: {
+                            latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude
+                        },
+                        options: {title:'You Are Here'}
                     }
                 }, 
                 function (reason) {
