@@ -50,22 +50,7 @@ myApp
             'GeolocationService', 
             function ($scope, $routeParams, uiGmapGoogleMapApi, geolocation, $log) {
                 $scope.params = $routeParams;
-        // $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
-
-                $scope.position = null;
-                $scope.message = "Determining geolocation...";
-                $log.log('typeof geolocation = ' + typeof(geolocation));
-                geolocation().then(
-                    function (position) {
-                        $scope.position = position;
-                    }, 
-                    function (reason) {
-                        $scope.message = "Could not be determined.";
-                    }
-                );
- 
-        $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.latitude }, zoom: 16 };
-
+        $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
 
         $scope.marker = {
             id: 1,
