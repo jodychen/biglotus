@@ -78,7 +78,7 @@ myApp
             geolocation().then(
                 function (position) {
                     $scope.position = position;
-                    $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 8 };
+                    $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 13 };
                     $scope.marker1 = {
                         id: 1,
                         coords: {
