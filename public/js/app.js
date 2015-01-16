@@ -48,19 +48,19 @@ myApp
     .controller('showMap', [ 
             '$scope', 
             'GeolocationService', 
-            function ($scope, $routeParams, uiGmapGoogleMapApi, geolocation) {
+            function ($scope, $routeParams, uiGmapGoogleMapApi, geolocation, $log) {
                 $scope.params = $routeParams;
         // $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };
 
                 $scope.position = null;
                 $scope.message = "Determining geolocation...";
-
+                $log.log('typeof geolocation = ' + typeof(geolocation));
                 geolocation().then(
                     function (position) {
                         $scope.position = position;
                     }, 
                     function (reason) {
-                        $scope.message = "Could not be determined."
+                        $scope.message = "Could not be determined.";
                     }
                 );
  
