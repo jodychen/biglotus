@@ -1,7 +1,7 @@
 module.exports = function() {
     var artindex = '',
     pages = this.pages();
-    artindex += "var ddefs = [\n";
+    artindex += '<script> var ddefs = [';
     var ppa = [];
     var p;
     for(var i=0; i < pages.length, page=pages[i]; i++) {
@@ -14,6 +14,6 @@ module.exports = function() {
 
     }
     artindex += ppa.join(",\n")
-    artindex += "\n];";
+    artindex += "\n]</script>";
     return artindex;
 }

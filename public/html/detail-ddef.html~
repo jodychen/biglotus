@@ -1,0 +1,47 @@
+    <!-- Portfolio Item Heading -->
+    <header class="row">
+        <section class="col-md-12" id="breadcrumbs">
+            <a href="#/landing">Portfolio</a> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <strong>Project Details</strong>
+        </section>
+        <div class="col-md-12">
+            <h1 class="page-header">{{projects[params.projId].Project}}
+<!--
+                <small>{{params.projId}}</small>
+-->
+            </h1>
+        </div>
+    </header>
+    <!-- /.row -->
+
+    <!-- Portfolio Item Row -->
+    <article class="row" id="project-detail">
+        <!-- img class="img-responsive" src="http://placehold.it/700x400" alt="" -->
+        <div ng-controller="CarouselCtrl" class="col-md-7">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}" />
+<!--
+                    <div class="carousel-caption">
+                        <h4>Slide {{$index}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+-->
+                </slide>
+            </carousel>
+        </div>
+
+        <div class="col-md-5">
+            <h2>Solution</h2>
+            <p>{{projects[params.projId].Solution}}</p>
+
+            <h2>Business Wins</h2>
+            <ul>
+                <li ng-repeat="Win in projects[params.projId].Wins">{{Win}}</li>
+            </ul>
+        </div>
+
+    </article>
+    <!-- /.row -->
+    <section id="nav-back">
+            <a href="#/landing"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Project List</a>
+    </section>

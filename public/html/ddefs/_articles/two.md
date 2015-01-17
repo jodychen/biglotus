@@ -1,5 +1,6 @@
 ---
 title: Title Two
+tag: ddef
 ---
 
 # Two That's a test page

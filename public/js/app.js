@@ -2,9 +2,17 @@
  * Created by jodychen on 11/22/14.
  */
 
+
+
+var ddefs = [{  Title: "Title ABC", Url: "/abc.html" },
+	     {  Title: "Title One", Url: "/one.html" },
+	     {  Title: "Title Page", Url: "/page.html" },
+	     {  Title: "Title Two", Url: "/two.html" }
+	     ];
+
 // merry christmas, andy's learning git basics
 
-var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps']);
+var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps', 'ngSanitize']);
 
 myApp
     .config(function($routeProvider) {
@@ -19,9 +27,9 @@ myApp
                 // controller: 'zipCodeCtrl'
                 controller: 'geoCtrl'
             })
-            .when('/detail/:projId', {
-                templateUrl: 'html/detail-ang.html',
-                controller: 'projectListCtrl'
+            .when('/dharmadictionary/:defId', {
+                templateUrl: 'html/detail-ddef.html',
+                controller: 'ddefCtrl'
             })
             .otherwise({
                 redirectTo: '/'
@@ -46,6 +54,24 @@ myApp
         $scope.params = $routeParams;
     })
     
+
+    .controller('ddefCtrl', function ($scope, $routeParams, $http) {
+	    /*      if we are retrieving $scope.projects via ajax
+        $http.get('js/projects.json').success (function(data){
+            $scope.projects = data;
+        });
+	    */
+	    $scope.ddefs = ddefs;
+	    $scope.params = $routeParams;
+	    $http.get('/html/ddefs/_articles/_dist/' + ddefs[$scope.params.defId].Url).success (function(data){
+		    console.log(data);
+
+		    // $scope.ddefcontent = data;
+		    $scope.myHTML = data;
+		});
+	})
+
+
        .controller('showMap', function ($scope, $routeParams, uiGmapGoogleMapApi) {
         $scope.params = $routeParams;
         $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };

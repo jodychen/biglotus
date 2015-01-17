@@ -1,11 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var fs = require('fs');
 var Techy = require('techy');
 Techy(__dirname + '/public/html/ddefs/_articles', function() {
 	this.compilePages();
-	fs.renameSync(__dirname + '/public/html/ddefs/_articles/_dist/abc.html', __dirname + '/public/html/ddefs/_articles/_dist/abc.json');
     }, { myprop: 'my value' });
 
 
