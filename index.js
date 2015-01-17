@@ -1,6 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var Techy = require('techy');
+Techy(__dirname + '/public/html/ddefs/_articles', function() {
+	this.compilePages();
+    }, { myprop: 'my value' });
+
+
 
 var app = express();
 
@@ -23,7 +29,6 @@ app.use("/js", express.static(__dirname + '/public/view/js'));
 
 
 app.get('/', function(request, response) {
-	// response.send('Hello World!');
 	response.render('index.html');
 });
 
