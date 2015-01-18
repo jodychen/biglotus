@@ -3,14 +3,14 @@
  */
 
 
-
+/*
 var ddefs = [{  Title: "Title ABC", Url: "/abc.html" },
 	     {  Title: "Title One", Url: "/one.html" },
 	     {  Title: "Title Page", Url: "/page.html" },
 	     {  Title: "Title Two", Url: "/two.html" }
 	     ];
 
-// merry christmas, andy's learning git basics
+*/
 
 var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps', 'ngSanitize']);
 
@@ -43,9 +43,6 @@ myApp
             libraries: 'weather,geometry,visualization'
         });
     })
-   // .config(function(GeolocationServiceProvider) {
-    // ;
-     // })
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
@@ -53,25 +50,18 @@ myApp
     .controller('authentication', function ($scope, $routeParams) {
         $scope.params = $routeParams;
     })
-    
-
     .controller('ddefCtrl', function ($scope, $routeParams, $http) {
-	    /*      if we are retrieving $scope.projects via ajax
-        $http.get('js/projects.json').success (function(data){
-            $scope.projects = data;
-        });
-	    */
-	    $scope.ddefs = ddefs;
+	    var ddefs;
 	    $scope.params = $routeParams;
-	    $http.get('/html/ddefs/_articles/_dist/' + ddefs[$scope.params.defId].Url).success (function(data){
-		    console.log(data);
-
-		    // $scope.ddefcontent = data;
-		    $scope.myHTML = data;
+	    $http.get('/html/ddefs/_articles/_dist/abc.json').success (function(data){
+		      console.log( 'data = ' + data);
+		    ddefs = angular.fromJson(data);
+		    $scope.ddefs = ddefs;
+		    $http.get('/html/ddefs/_articles/_dist/' + ddefs[$scope.params.defId].Url).success (function(data){
+			    $scope.myHTML = data;
 		});
+	    });
 	})
-
-
        .controller('showMap', function ($scope, $routeParams, uiGmapGoogleMapApi) {
         $scope.params = $routeParams;
         $scope.map = { center: { latitude: 40.742683, longitude: -73.873578 }, zoom: 16 };

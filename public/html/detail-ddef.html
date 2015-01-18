@@ -22,7 +22,11 @@
 
         </div>
 
+ <ul ng-repeat="ddef in ddefs">
+   
 
-
-    </article>
+<li ng-if="$index != params.defId">
+<a href="/#/dharmadictionary/{{ $index }}">{{ ddef.Title }}</a></li>
+</ul>
+</article>
 
