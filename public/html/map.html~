@@ -7,13 +7,11 @@
     <img src="img/open-source/ajax-loader.gif" />
 </section>
 
-
-<div ng-controller="ExampleController">
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
   <ui-gmap-marker idKey='marker1.id' coords='marker1.coords' options='marker1.options'></ui-gmap-marker>
   <ui-gmap-marker idKey='marker2.id' coords='marker2.coords' options='marker2.options'></ui-gmap-marker>
 </ui-gmap-google-map>
-</div>
+
   <!--    <div ng-show="position">        
         <<p>{{ position | json }}</p>
         <p>{{ position.coords.latitude }}</p> 
