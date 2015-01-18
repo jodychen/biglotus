@@ -1,32 +1,31 @@
-    <!-- Portfolio Item Heading -->
-    <header class="row">
-        <section class="col-md-12" id="breadcrumbs">
-            <a href="#/landing">DD</a> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <strong>Defs</strong>
-        </section>
-        <div class="col-md-12">
-            <h1 class="page-header">{{ddefs[params.defId].Title}}</h1>
-        </div>
-    </header>
-    <!-- /.row -->
+<!-- Portfolio Item Heading -->
+<header class="row">
+    <section class="col-md-12" id="breadcrumbs">
+        <a href="#/landing">Dharma Definitions</a> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <strong>Definitions</strong>
+    </section>
+    <div class="col-md-12">
+        <h1 class="page-header">{{ddefs[params.defId].Title}}</h1>
+    </div>
+</header>
+<!-- /.row -->
 
-    <!-- Portfolio Item Row -->
-    <article class="row" id="project-detail">
-        <!-- img class="img-responsive" src="http://placehold.it/700x400" alt="" -->
-        <div class="col-md-5">
-            <h2>Term</h2>
-            <p>{{ddefs[params.defId].Title}}</p>
+<!-- Portfolio Item Row -->
+<main class="row" id="article">
+    <!-- img class="img-responsive" src="http://placehold.it/700x400" alt="" -->
+    <article class="col-md-7">
+        <h2>Term</h2>
+        <p>{{ddefs[params.defId].Title}}</p>
+        <h2>Url</h2>
+        <p>{{ddefs[params.defId].Url}}</p>
+        <section ng-bind-html="myHTML"></section>
+    </article>
 
-            <h2>Url</h2>
-            <p>{{ddefs[params.defId].Url}}</p>
-	    <p ng-bind-html = "myHTML"></p>
-
-        </div>
-
- <ul ng-repeat="ddef in ddefs">
-   
-
-<li ng-if="$index != params.defId">
-<a href="/#/dharmadictionary/{{ $index }}">{{ ddef.Title }}</a></li>
-</ul>
-</article>
+    <aside class="col-md-5">
+        <ul ng-repeat="ddef in ddefs">
+            <li ng-if="$index != params.defId">
+                <a href="/#/dharmadictionary/{{ $index }}">{{ ddef.Title }}</a>
+            </li>
+        </ul>
+    </aside>
+</main>
 
