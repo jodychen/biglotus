@@ -25,6 +25,9 @@
             <li ng-if="$index != params.defId">
                 <a href="/#/dharmadictionary/{{ $index }}">{{ ddef.Title }}</a>
             </li>
+            <li ng-if="$index === params.defId">
+                <strong>{{ ddef.Title }}</strong>
+            </li>
         </ul>
     </aside>
 </main>
