@@ -43,6 +43,13 @@ myApp
             libraries: 'weather,geometry,visualization'
         });
     })
+    .config(['$compileProvider', function ($compileProvider) {
+	$compileProvider.debugInfoEnabled(false);
+    }])  
+    /*  If you wish to debug an application with this information then 
+     * you should open up a debug console in the browser then call this method directly in this console:
+     * angular.reloadWithDebugInfo(); 
+     */
     .controller('navCtrl', function ($scope, $log) {
         $log.log('within nav function');
         $scope.isCollapsed = true;
