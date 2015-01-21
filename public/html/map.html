@@ -2,7 +2,7 @@
 <!-- might move to font awesome icons if we need another icon from that library. the ajax loader is only 4kb.
 <section id="test" class="fa fa-spinner fa-spin"></section>
 -->
-<section id="loading">
+<section id="loading" class="hidden">
     <h2>Map is Loading ...</h2>
     <img src="img/open-source/ajax-loader.gif" />
 </section>
@@ -13,7 +13,7 @@
 
 <div ng-controller="geoCtrl" ng-repeat="marker in markers">
   <ui-gmap-marker idKey='marker.id' coords='marker.coords' options='marker.options'></ui-gmap-marker>
-</div
+</div>
 
 <!--  <ui-gmap-marker idKey='marker1.id' coords='marker1.coords' options='marker1.options'></ui-gmap-marker> -->
 <!--  <ui-gmap-marker idKey='marker2.id' coords='marker2.coords' options='marker2.options'></ui-gmap-marker> -->
