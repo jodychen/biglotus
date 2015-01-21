@@ -2,15 +2,6 @@
  * Created by jodychen on 11/22/14.
  */
 
-
-/*
-var ddefs = [{  Title: "Title ABC", Url: "/abc.html" },
-     {  Title: "Title One", Url: "/one.html" },
-          {  Title: "Title Page", Url: "/page.html" },
-	       {  Title: "Title Two", Url: "/two.html" }
-	            ];
-*/
-
 var myApp = angular.module('myApp',  ['ngRoute', 'ui.bootstrap', 'uiGmapgoogle-maps', 'ngSanitize']);
 
 myApp
@@ -33,7 +24,6 @@ myApp
             .otherwise({
 		    redirectTo: '/'
 			});
-        console.log('end of config function');
         })
     .config(function(uiGmapGoogleMapApiProvider) {
 	    uiGmapGoogleMapApiProvider.configure({
@@ -53,7 +43,6 @@ myApp
 	    var ddefs;
 	    $scope.params = $routeParams;
 	    $http.get('/html/ddefs/_articles/_dist/abc.json').success (function(data){
-		    console.log( 'data = ' + data);
 		    ddefs = angular.fromJson(data);
 		    $scope.ddefs = ddefs;
 		    $http.get('/html/ddefs/_articles/_dist/' + ddefs[$scope.params.defId].Url).success (function(data){
@@ -73,52 +62,62 @@ myApp
 					  };
 					  $scope.zoom = 8;
 					  $scope.control = {};
-					  IsReady.promise().then(function (maps) {
+					  /* IsReady.promise().then(function (maps) {
 						  var map1 = $scope.control.getGMap();
 						  var map2 = maps[0].map;
 						  alert(map1 === map2);
-					      });
+						  }); */
 				      }])
 
 
 
-    .controller('geoCtrl', [
+    .controller('geoCtrl', [ '$http',
 			    '$scope', 
-			    'GeolocationService', 
+			    'GeolocationService',
 			    'uiGmapIsReady',
-			    function ($scope, geolocation) {
-				$scope.position = null;
-				$scope.message = "Determining geolocation...";
+			     function ($http, $scope, geolocation ) {
+			var markers;
+			$scope.position = null;
+			$scope.message = "Determining geolocation...";
+				
+			$http.get('/html/dharmacenters.json').success (function(data){
+				markers = angular.fromJson(data);
+			    });
+			geolocation().then(function (position, IsReady) {
+				$scope.position = position;
+				$scope.map = { 
+				    center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, 
+				    zoom: 13 
+				};
+				$scope.markers = [];
+				for ( var i=0; i < markers.length; i++ ) {
+				    $scope.markers.push( { 
+					    coords: { latitude : markers[i].latitude, 
+						    longitude : markers[i].longitude}, 
+						options: { 
+						title: markers[i].street, 
+						    labelContent: markers[i].label, 
+						    labelClass: 'nav-marker' }
+					});
+				    $scope.markers[i].id = i+1;
+				}
 
-				geolocation().then(
-						   function (position, IsReady) {
-						       $scope.position = position;
-						       $scope.map = { center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, zoom: 13 };
-						       $scope.marker1 = {
-							   id: 1,
-							   coords: {
-							       latitude: 40.742683,
-							       longitude: -73.873578
-							   },
-							   options: {title:'Chan Meditation Center', labelContent : 'Chan Meditation Center of Dharma Drum', labelClass: 'nav-marker'}
-						       }
-						       $scope.marker2 = {
-							   id: 2,
-							   coords: {
-							       latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude
-							   },
-							   options: {title:'You Are Here', labelContent : 'This is Where You Are', labelClass: 'nav-marker' }
-						       }
-						   }, 
-						   function (reason) {
-                    $scope.message = "Could not be determined."
-			}
-						   );
-			    }
-
-			    ]);
-    
-    
+				$scope.markers.push( { 
+					id: i, coords: { 
+					    latitude: $scope.position.coords.latitude, 
+						longitude: $scope.position.coords.longitude
+						},
+					    options: {
+					    title:'This is Where You Are', 
+						labelContent : 'You Are Here', 
+						labelClass: 'nav-marker' 
+						}
+				    });
+			    }, 
+			    function (reason) { $scope.message = "Could not be determined." });
+		    }
+			     ]);
+        
 myApp.factory('GeolocationService', [
 				     '$q', 
 				     '$window', 
@@ -136,7 +135,6 @@ myApp.factory('GeolocationService', [
 						 $window.navigator.geolocation.getCurrentPosition(function(position) {
 							 $rootScope.$apply(function() {
 								 deferred.resolve(position);
-								 // deferred.resolve({ lat: position.coords.latitude, lng: position.coords.longitude });
 							     });
 						     }, function(error) {
 							 $rootScope.$apply(function() {
