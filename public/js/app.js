@@ -42,10 +42,10 @@ myApp
     .controller('ddefCtrl', function ($scope, $routeParams, $http) {
 	    var ddefs;
 	    $scope.params = $routeParams;
-	    $http.get('/html/ddefs/_articles/_dist/abc.json').success (function(data){
+	    $http.get('/cms/ddefs/articleindex.json').success (function(data){
 		    ddefs = angular.fromJson(data);
 		    $scope.ddefs = ddefs;
-		    $http.get('/html/ddefs/_articles/_dist/' + ddefs[$scope.params.defId].Url).success (function(data){
+		    $http.get('/cms/ddefs' + ddefs[$scope.params.defId].Url).success (function(data){
 			    $scope.myHTML = data;
 			});
 		});
@@ -80,7 +80,7 @@ myApp
 			$scope.position = null;
 			$scope.message = "Determining geolocation...";
 				
-			$http.get('/html/dharmacenters.json').success (function(data){
+			$http.get('/cms/map/dharmacenters.json').success (function(data){
 				markers = angular.fromJson(data);
 			    });
 			geolocation().then(function (position, IsReady) {

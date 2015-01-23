@@ -1,39 +1,33 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-
 var fs = require('fs');
 var Techy = require('techy');
-Techy(__dirname + '/public/html/ddefs/_articles', function() {
+Techy(__dirname + '/CMS/ddefs/', function() {
 	this.compilePages();
-	fs.renameSync(__dirname + '/public/html/ddefs/_articles/_dist/abc.html', __dirname + '/public/html/ddefs/_articles/_dist/abc.json');
+	fs.renameSync(__dirname + '/public/cms/ddefs/articleindex.html', __dirname + '/public/cms/ddefs/articleindex.json');
 	console.log("got ddef articles list"); 
-    }, {    myprop: 'my value'});
+    }, {    dest: __dirname + '/public/cms/ddefs' });
 
 
-//Converter Class
 var Converter=require("csvtojson").core.Converter;
-var csvFileName= __dirname + "/maplocations/dharmacenters.csv";
-var fileStream=fs.createReadStream(csvFileName);
-
 var csvConverter=new Converter({constructResult:true});
-
-//end_parsed will be emitted once parsing finished
-var outfile = fs.createWriteStream(__dirname + "/public/html/dharmacenters.json");
+var out = fs.createWriteStream(__dirname + "/public/cms/map/dharmacenters.json");
 csvConverter.on("end_parsed",function(jsonObj){
-	outfile.end(JSON.stringify(jsonObj));
-	// console.log(jsonObj); //here is your result json object
+	out.end(JSON.stringify(jsonObj));
 	console.log("got dharmacenters markers");
     });
-
-//read from file
+var fileStream=fs.createReadStream(__dirname + "/CMS/map/dharmacenters.csv");
 fileStream.pipe(csvConverter);
 
+
+
+var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.set('views', __dirname + '/public/views');
+// app.set('views', __dirname + '/public/views');
+app.set('views', __dirname + '/public/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
@@ -42,11 +36,9 @@ app.use(bodyParser.urlencoded({
 		}));
 app.use(bodyParser.json());
 
-app.use("/js", express.static(__dirname + '/public/view/js'));
-
-
-
-
+app.use("/js", express.static(__dirname + '/public/js'));
+app.use("/cms", express.static(__dirname + '/public/cms'));
+app.use("/html", express.static(__dirname + '/public/ng_html'));
 
 app.get('/', function(request, response) {
 	response.render('index.html');
