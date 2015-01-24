@@ -11,13 +11,13 @@ myApp
 		    templateUrl: 'html/login.html',
 			controller: 'authentication'
 			})
-            .when('/map', {
+            .when('/dharma-centers', {
 		    templateUrl: 'html/map.html',
 			// controller: 'showMap'
 			// controller: 'zipCodeCtrl'
 			controller: 'geoCtrl'
 			})
-            .when('/dharmadictionary/:defId', {
+            .when('/dharma-dictionary/:defId', {
 		    templateUrl: 'html/detail-ddef.html',
 			controller: 'ddefCtrl'
 			})
