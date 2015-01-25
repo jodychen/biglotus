@@ -1,6 +1,6 @@
 ---
 tag: definition
-title: Dharma Dictionary:Sutra
+title: "Dharma Dictionary: Sutra (सूत्र)"
 ---
 
 It has probably happened to you at some point. You get on the subway and you see someone reading a book. At the next stop someone gets on and they begin to read a book, the same you saw before. While walking in the park, or sitting in a coffee shop, you see people reading the same book. Gradually you hear people talk about this book. You begin to wonder, what is this book about? Was it on Oprah's book of the month or something? Why are so many people reading it? Your friends and family pile on the praises for the book.  Now that your interest is piqued, the next step is to acquire a copy. Maybe you go to the local library, or even try to borrow it from a friend. You could always go to a bookstore (be in person or online) but let's say that none of these options worked. You'd really like to read this book because you see that it's touched the lives of many people, so what do you do? Would you be willing to travel thousands of miles and spend decades in search of this book? Totally insane you might say, is any book worth that kind of effort? Throughout history there have indeed been such books and ones that contain the teachings of the Buddha are known as sutras. 
