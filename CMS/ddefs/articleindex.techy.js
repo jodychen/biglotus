@@ -5,7 +5,7 @@ module.exports = function() {
     var ppa = [];
     var p;
     for(var i=0; i < pages.length, page=pages[i]; i++) {
-	if ('ddef' === page.get('tag')) {
+	if ('definition' === page.get('tag')) {
 	    p = '{  "Title": "' +  page.get('title') + '", "Url": "' + page.get('paths').url + '" }'; 
 	    ppa.push(p);
 	}
