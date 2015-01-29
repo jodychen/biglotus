@@ -1,3 +1,13 @@
 latitude,longitude,label,street,city,state,zip,website,phone
-40.742683,-73.873578,Ch'an Meditation Center of Dharma Drum,90-56 Corona Avenue,Elmhurst,NY,11373,http://chancenter.org/,(718) 592-6593
-40.775409,-73.809051,Fo Guang Shan Temple of IBPS,154-37 Barclay Avenue,Flushing,NY,11355,http://www.fgsny.org/,(718) 939-8318
+40.742683	-73.873578	Ch'an Meditation Center	Ch'an Meditation Center of Dharma Drum	90-56 Corona Avenue	Elmhurst	NY	11373	http://chancenter.org/	(718) 592-6593
+40.775409	-73.809051	Fo Guang Shan Temple	Fo Guang Shan Temple of IBPS	154-37 Barclay Avenue	Flushing	NY	11355	http://www.fgsny.org/	(718) 939-8318
+40.879363	-73.903676	Temple of Enlightenment	Temple of Enlightenment 	3070 Albany Crescent	Bronx	NY	10463	http://www.baus.org/	(718) 884-9111
+40.861146	-73.901182	USA Buddhayaram Temple	USA Buddhayaram Temple	2084 Anthony Avenue	Bronx	NY	10457	no website	(718) 933-8053
+40.677751	-73.98522	Brooklyn Zen Center	Brooklyn Zen Center	505 Carroll Street # 2	Brooklyn	NY	11215	https://brooklynzen.org/	(718) 701-1083
+40.686086	-73.980882	Zen Center of New York City	Fire Lotus Temple	500 State Street	Brooklyn	NY	11217	http://zcnyc.mro.org/	718) 875-8229
+40.63634	-74.14301	Staten Island Buddhist Vihara	Staten Island Buddhist Vihara	115 John Street 	Staten Island	NY	10302	http://www.sibv.org/	(718) 556-2051
+40.577522	-74.138146	The Jacques Marchais Museum of Tibetan Art	The Jacques Marchais Museum of Tibetan Art	338 Lighthouse Avenue	Staten Island	NY	10306	http://www.tibetanmuseum.org/	(718) 987-3500
+40.801917	-73.970103	New York Buddhist Church	New York Buddhist Church	331-332 Riverside Drive	New York	NY	10025	http://www.newyorkbuddhistchurch.org/	(212) 678-0305
+40.759136	-73.961846	Won Buddhism of Manhattan	Won Buddhism of Manhattan	431 East 57th Street	New York	NY	10022	http://nyc.wonbuddhism.org/	(212) 750-2773
+40.745284	-73.990023	New York Insight Meditation Center	New York Insight Meditation Center	28 West 27th Street	New York	NY	10001	https://www.nyimc.org/	(212) 213-4802
+40.725807	-73.99695	The Village Zendo	The Village Zendo	588 Broadway, Suite 1108	New York	NY	10012	http://villagezendo.org/	(212) 340-4656
