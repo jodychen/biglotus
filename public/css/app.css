@@ -10,8 +10,8 @@ footer {
 .angular-google-map-container { height: 470px; }
 
 .map-marker {
-    opacity: .9;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 0.3em;
-    border: medium rgb(255, 255, 255);
+    border: medium #fff;
+    color: brown;
 }
