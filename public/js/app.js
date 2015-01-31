@@ -97,7 +97,7 @@ myApp
 						options: { 
 						title: markers[i].street, 
 						    labelContent: markers[i].label, 
-						    labelClass: 'nav-marker' }
+						    labelClass: 'map-marker' }
 					});
 				    $scope.markers[i].id = i+1;
 				}
@@ -110,7 +110,7 @@ myApp
 					    options: {
 					    title:'This is Where You Are', 
 						labelContent : 'You Are Here', 
-						labelClass: 'nav-marker' 
+						labelClass: 'map-marker' 
 						}
 				    });
 			    }, 
