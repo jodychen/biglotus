@@ -95,9 +95,16 @@ myApp
 					    coords: { latitude : markers[i].latitude, 
 						    longitude : markers[i].longitude}, 
 						options: { 
-						title: markers[i].street, 
+						    title: markers[i].street, 
 						    labelContent: markers[i].label, 
-						    labelClass: 'map-marker' }
+						    labelClass: 'map-marker' 
+						    },
+						events: {
+						   
+						click: function (marker, eventName, scope,  args) {
+						    alert($scope.markers[(marker.key-1)].options.title);
+						}
+					        }
 					});
 				    $scope.markers[i].id = i+1;
 				}
@@ -108,10 +115,15 @@ myApp
 						longitude: $scope.position.coords.longitude
 						},
 					    options: {
-					    title:'This is Where You Are', 
+					        title:'This is Where You Are', 
 						labelContent : 'You Are Here', 
 						labelClass: 'map-marker' 
-						}
+						},
+					    events: {
+					        click: function (marker, eventName, args) {
+						     alert('You\'re here now');
+					    }
+					}
 				    });
 			    }, 
 			    function (reason) { $scope.message = "Could not be determined." });
@@ -145,6 +157,8 @@ myApp.factory('GeolocationService', [
 					     return deferred.promise;
 					 };
 				     }
+
+
 
 
 				     ]);
