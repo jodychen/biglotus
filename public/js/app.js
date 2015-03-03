@@ -91,21 +91,22 @@ myApp
 				};
 				$scope.markers = [];
 				for ( var i=0; i < markers.length; i++ ) {
-				    $scope.markers.push( { 
-					    coords: { latitude : markers[i].latitude, 
-						    longitude : markers[i].longitude}, 
-						options: { 
-						    title: markers[i].street, 
-						    labelContent: markers[i].label, 
-						    labelClass: 'map-marker' 
-						    },
+				    $scope.markers.push({ 
+					    coords: {
+						latitude : markers[i].latitude, 
+						longitude : markers[i].longitude
+						}, 
+					    options: { 
+						title: markers[i].street, 
+						labelContent: markers[i].label, 
+						labelClass: 'map-marker' 
+						},
 						events: {
-						   
-						click: function (marker, eventName, scope,  args) {
-						    alert($scope.markers[(marker.key-1)].options.title);
-						}
 					        }
 					});
+				    $scope.markers[i].events.click = function (innerkey) {
+				     return function() { alert($scope.markers[innerkey].options.title); }
+				     }(i);
 				    $scope.markers[i].id = i+1;
 				}
 
