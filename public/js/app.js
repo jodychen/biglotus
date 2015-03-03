@@ -84,6 +84,7 @@ myApp
 				markers = angular.fromJson(data);
 			    });
 			geolocation().then(function (position, IsReady) {
+				"use strict";
 				$scope.position = position;
 				$scope.map = { 
 				    center: { latitude: $scope.position.coords.latitude, longitude: $scope.position.coords.longitude }, 
@@ -101,12 +102,11 @@ myApp
 						labelContent: markers[i].label, 
 						labelClass: 'map-marker' 
 						},
-						events: {
+ 					     events: {
+						click : function (innerkey) { return function() { 
+							alert($scope.markers[innerkey].options.title); }}(i)
 					        }
 					});
-				    $scope.markers[i].events.click = function (innerkey) {
-				     return function() { alert($scope.markers[innerkey].options.title); }
-				     }(i);
 				    $scope.markers[i].id = i+1;
 				}
 
