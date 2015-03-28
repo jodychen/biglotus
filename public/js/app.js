@@ -51,26 +51,6 @@ myApp
 		});
 	})
 
-    .controller('ExampleController', [
-				      '$scope',
-				      'uiGmapIsReady',
-
-				      function ($scope, IsReady) {
-					  $scope.center = {
-					      latitude: 30,
-					      longitude: -90
-					  };
-					  $scope.zoom = 8;
-					  $scope.control = {};
-					  /* IsReady.promise().then(function (maps) {
-						  var map1 = $scope.control.getGMap();
-						  var map2 = maps[0].map;
-						  alert(map1 === map2);
-						  }); */
-				      }])
-
-
-
     .controller('geoCtrl', [ '$http',
 			    '$scope', 
 			    'GeolocationService',
@@ -91,7 +71,21 @@ myApp
 				    zoom: 13 
 				};
 				$scope.markers = [];
-				for ( var i=0; i < markers.length; i++ ) {
+				$scope.selected = {show: false};
+				$scope.windowOptions = {
+				    visible: false
+				};
+				$scope.onClick = function() {
+				    $scope.windowOptions.visible = !$scope.windowOptions.visible;
+				};
+				$scope.closeClick = function() {
+				    $scope.windowOptions.visible = false;
+				};
+
+				var i=0;
+				for ( ; i < markers.length; i++ ) {
+				    // console.log("marker: " + i);
+
 				    $scope.markers.push({ 
 					    coords: {
 						latitude : markers[i].latitude, 
@@ -104,14 +98,26 @@ myApp
 						},
  					     events: {
 						click : function (innerkey) { return function() { 
-							alert($scope.markers[innerkey].options.title); }}(i)
-					        }
+
+							// console.log("Clicked! ", innerkey);
+							 $scope.selected.show = false;
+							 $scope.selected = $scope.markers[innerkey];
+							 $scope.selected.show = !$scope.selected.show;
+
+
+							 $scope.selected.onCloseClick = function() {
+							    $scope.selected.show = false;
+							    // console.log("CloseClicked");
+							    $scope.$apply();
+							};
+						    }}(i)
+							  }
 					});
 				    $scope.markers[i].id = i+1;
 				}
 
 				$scope.markers.push( { 
-					id: i, coords: { 
+					    id: i+1, coords: { 
 					    latitude: $scope.position.coords.latitude, 
 						longitude: $scope.position.coords.longitude
 						},
@@ -121,9 +127,20 @@ myApp
 						labelClass: 'map-marker' 
 						},
 					    events: {
-					        click: function (marker, eventName, args) {
-						     alert('You\'re here now');
-					    }
+						click : function (innerkey) { return function() { 
+
+						    // console.log("Clicked! ", innerkey);
+							 $scope.selected.show = false;
+							 $scope.selected = $scope.markers[innerkey];
+							 $scope.selected.show = !$scope.selected.show;
+
+
+							 $scope.selected.onCloseClick = function() {
+							    $scope.selected.show = false;
+							    // console.log("CloseClicked");
+							    $scope.$apply();
+							};
+						    }}(i)
 					}
 				    });
 			    }, 
@@ -131,7 +148,7 @@ myApp
 		    }
 			     ]);
         
-myApp.factory('GeolocationService', [
+                   myApp.factory('GeolocationService', [
 				     '$q', 
 				     '$window', 
 				     '$rootScope',
