@@ -1,6 +1,6 @@
 <div ng-controller="geoCtrl">
 <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-<ui-gmap-markers models="markers" coords="'coords'" options="'options'"/>
+<ui-gmap-markers models="markers" coords="'coords'" options="'options'" icon="'icon'"/>
   <ui-gmap-window coords="selected.coords" show="selected.show" closeClick='selected.onCloseClick()'>
     <div>{{selected.options.title}}</div>
   </ui-gmap-window>

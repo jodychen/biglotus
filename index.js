@@ -35,6 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use("/js", express.static(__dirname + '/public/js'));
+app.use("/img", express.static(__dirname + '/public/img'));
 app.use("/cms", express.static(__dirname + '/public/cms'));
 app.use("/html", express.static(__dirname + '/public/ng_html'));
 

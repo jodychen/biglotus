@@ -96,15 +96,14 @@ myApp
 						labelContent: markers[i].label, 
 						labelClass: 'map-marker' 
 						},
- 					     events: {
+						icon:  markers[i].iconcode === 1 ? '/img/mapicons/617865.png' :'/img/mapicons/1429219853_museum-128.png' ,
+ 					    events: {
 						click : function (innerkey) { return function() { 
 
 							// console.log("Clicked! ", innerkey);
 							 $scope.selected.show = false;
 							 $scope.selected = $scope.markers[innerkey];
 							 $scope.selected.show = !$scope.selected.show;
-
-
 							 $scope.selected.onCloseClick = function() {
 							    $scope.selected.show = false;
 							    // console.log("CloseClicked");
@@ -126,6 +125,7 @@ myApp
 						labelContent : 'You Are Here', 
 						labelClass: 'map-marker' 
 						},
+   					    icon:  '/img/mapicons/617865.png',
 					    events: {
 						click : function (innerkey) { return function() { 
 
