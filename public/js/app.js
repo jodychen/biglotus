@@ -101,7 +101,7 @@ myApp
 						labelContent: markers[i].label, 
 						labelClass: 'map-marker' 
 						},
-						icon:  markers[i].iconcode === 1 ? '/img/mapicons/617865.png' :'/img/mapicons/1429219853_museum-128.png' ,
+						icon:  markers[i].iconcode === 1 ? '/img/mapicons/temple.png' :'/img/mapicons/1429219853_museum-128.png' ,
  					    events: {
 						click : function (innerkey) { return function() { 
 
