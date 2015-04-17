@@ -17,6 +17,11 @@ myApp
 			// controller: 'zipCodeCtrl'
 			controller: 'geoCtrl'
 			})
+            .when('/admin', {
+		    templateUrl: 'html/temple.html',
+			controller: 'authentication'
+			})
+
             .when('/dharma-dictionary/:defId', {
 		    templateUrl: 'html/detail-ddef.html',
 			controller: 'ddefCtrl'
