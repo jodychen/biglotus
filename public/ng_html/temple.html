@@ -1,32 +1,27 @@
 <!-- Page Heading -->
 <header class="row">
     <div class="col-md-12">
-        <h1 class="page-header">Contact
+        <h1 class="page-header">Dharma Center Information
         </h1>
     </div>
 </header>
 <!-- /.row -->
-<article class="">
-    <p>Dharma center information</p>
-</article>
 
+<main class="row">
 <script type="text/javascript">var submitted=false;</script>
 <iframe name="hidden_iframe" id="hidden_iframe"
 style="display:none;" onload="if(submitted)
-{window.location='http://biglotus.heroku.com/#/dharma-dictionary/0;}"></iframe>
-
-
-
+{window.location='/#/dharma-dictionary/0;}"></iframe>
 
 <form action="https://docs.google.com/forms/d/14NpTNhKwz9Azuh6ew6Mm62sS04OcWVRHi-f4uqGa8Qs/formResponse" method="post"
-target="hidden_iframe" onsubmit="submitted=true;" class="col-xs-12 col-sm-8 col-md-6 col-lg-4 center-block">      
+target="hidden_iframe" onsubmit="submitted=true;" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">      
 
 <ul class="list-unstyled">
 
         <li class="form-group">
             <label aria-label="(Required field)" for="entry_748967423">
                 Temple Name
-                <span class="ss-required-asterisk" aria-hidden="true">*</span>
+                <span aria-hidden="true">*</span>
             </label>
             <input type="text" name="entry.748967423" value="" class="form-control" id="entry_748967423" dir="auto"
                    aria-label="Temple Name  " aria-required="true" required="" title="">
@@ -34,16 +29,57 @@ target="hidden_iframe" onsubmit="submitted=true;" class="col-xs-12 col-sm-8 col-
 
         <li class="form-group">
             <label aria-label="(Required field)" for="entry_1498328560">
-                Address
-                <span class="ss-required-asterisk" aria-hidden="true">*</span>
+                Address1
+                <span aria-hidden="true">*</span>
             </label>
-            <textarea name="entry.1498328560" rows="8" class="form-control" id="entry_1498328560"
-                      dir="auto" id="entry_1498328560" dir="auto" aria-label="Address  " aria-required="true" 
-		      required="" title=""></textarea>
+            <input type="text" name="entry.1498328560" rows="8" class="form-control" id="entry_1498328560"
+                      dir="auto" id="entry_1498328560" aria-label="Address  " aria-required="true" 
+		      required="" title="">
+        </li>
+
+        <li class="form-group">
+            <label aria-label="(Required field)" for="entry_2048408054">
+                Address2
+                <span aria-hidden="true">*</span>
+            </label>
+            <input type="text" name="entry.2048408054"  class="form-control" id="entry_2048408054"
+                      dir="auto" aria-label="Address2  " aria-required="true" 
+		      required="" title="">
+        </li>
+
+        <li class="form-group">
+            <label aria-label="(Required field)" for="entry_725436266">
+                City
+                <span aria-hidden="true">*</span>
+            </label>
+            <input type="text" name="entry.725436266" class="form-control" id="entry_725436266"
+                      dir="auto" aria-label="City" aria-required="true" 
+		      required="" title="">
+        </li>
+
+        <li class="form-group">
+            <label aria-label="(Required field)" for="entry_1498328560">
+                State
+                <span aria-hidden="true">*</span>
+            </label>
+            <select name="entry.1498328560" id="entry_1498328560"
+                      dir="auto" aria-label="State" aria-required="true" class="form-control">
+                <option value="CT">CT</option>
+                <option value="NY">NY</option>
+            </select>
         </li>
 
 
+
         <li class="form-group">
+            <label aria-label="(Required field)" for="entry_1198419467">
+                Zip
+                <span class="ss-required-asterisk" aria-hidden="true">*</span>
+            </label>
+	    <input type="number" name="entry.1198419467" value="" class="form-control" id="entry_1198419467" dir="auto" aria-label="Phone  " aria-required="true" required="" title="">
+        </li>
+
+<li class="form-group">
             <label aria-label="(Required field)" for="entry_1198419467">
                 Phone
                 <span class="ss-required-asterisk" aria-hidden="true">*</span>
@@ -51,12 +87,23 @@ target="hidden_iframe" onsubmit="submitted=true;" class="col-xs-12 col-sm-8 col-
 	    <input type="text" name="entry.1198419467" value="" class="form-control" id="entry_1198419467" dir="auto" aria-label="Phone  " aria-required="true" required="" title="">
         </li>
 
-        <li class="form-group">
+        <li class="form-group hide">
             <label for="entry_645485729">
                 Open Sitting Hours
             </label>
-	    <textarea name="entry.645485729" rows="8" class="form-control" id="entry_645485729" 
-		      dir="auto" aria-label="Open Sitting Hours  "></textarea>
+            <input type="time" name="entry.645485729" id="entry_645485729" aria-label="Open Sitting Hours  ">
+        </li>
+
+
+        <li class="form-group">
+            <label for="entry_1171334561">
+                Open Sitting Days
+            </label>
+            <ul class="list-inline" aria-label="Open Sitting Days  "><li><label><input type="checkbox" name="entry.304648192" value="Saturday" id="group_304648192_1" role="checkbox">
+Saturday
+</label></li> <li><label><input type="checkbox" name="entry.304648192" value="Sunday" id="group_304648192_2" role="checkbox">
+Sunday
+</label></li></ul>
         </li>
 
 
@@ -87,3 +134,4 @@ target="hidden_iframe" onsubmit="submitted=true;" class="col-xs-12 col-sm-8 col-
 <input type="hidden" name="pageHistory" value="0">
 <input type="hidden" name="fbzx" value="-5527028492171273250">
 </form>
+</main>
