@@ -17,14 +17,21 @@ csvConverter.on("end_parsed",function(jsonObj){
 var fileStream=fs.createReadStream(__dirname + "/CMS/map/dharmacenters.csv");
 fileStream.pipe(csvConverter);
 
-var express = require('express');
 var bodyParser = require('body-parser');
+
+var express = require('express'),
+    h5bp = require('h5bp');
+
 var app = express();
+var compression = require('compression');
+
+app.use(h5bp({ root: __dirname + '/public' }));
+app.use(compression());
+
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-// app.set('views', __dirname + '/public/views');
 app.set('views', __dirname + '/public/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
