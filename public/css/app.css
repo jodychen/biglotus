@@ -23,3 +23,14 @@ footer {
     border: medium #fff;
     color: brown;
 }
+
+
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #33BE3F;
+  border-color: #33BE3F;
+  font-size: 20px;
+  line-height: 1;
+}
